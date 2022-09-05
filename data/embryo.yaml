@@ -3,14 +3,14 @@
 # parent
 # ├── yolov5
 # └── datasets
-#     └── embryo  ← downloads here
+#     └── embryo  ← dataset here
 
 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
 path: ../datasets/embryo  # dataset root dir
-train: train/*  # train images (relative to 'path')
-val: val/*      # validation images (relative to 'path')
-test: test/*    # test images (relative to 'path')
+train: train  # train images (relative to 'path')
+val: val      # validation images (relative to 'path')
+test: test    # test images (relative to 'path')
 
 # Classes
 names:
@@ -21,15 +21,3 @@ names:
 
 # Download script/URL (optional)
 download: |
-  from utils.general import download, Path
-  # Download labels
-  #segments = False  # segment or box labels
-  dir = Path(yaml['path'])  # dataset root dir
-  url = 'https://app.roboflow.com/ds/nSO0wHWMy0?key=D55iKPavh4'
-  #urls = [url + ('coco2017labels-segments.zip' if segments else 'coco2017labels.zip')]  # labels
-  download(urls, dir=dir.parent)
-  # Download data
-  #urls = ['http://images.cocodataset.org/zips/train2017.zip',  # 19G, 118k images
-  #        'http://images.cocodataset.org/zips/val2017.zip',  # 1G, 5k images
-  #        'http://images.cocodataset.org/zips/test2017.zip']  # 7G, 41k images (optional)
-  #download(urls, dir=dir / 'images', threads=3)
